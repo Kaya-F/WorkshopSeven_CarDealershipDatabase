@@ -7,23 +7,23 @@ CREATE TABLE Dealerships(
 );
 
 CREATE TABLE Vehicles(
-	vin int PRIMARY KEY,
-    sold boolean,
-    PRIMARY KEY(vin)
+	vin int,
+    sold boolean
 );
 
 CREATE TABLE Inventory(
 	dealership_id int,
-    vin int,
-    PRIMARY KEY(dealership_id)
+    vin int
 );
 
 CREATE TABLE Sales_Contract(
     dealership_id int,
-    vin int
+    vin int,
+    FOREIGN KEY(vin) REFERENCES Vehicles(vin)
 );
 
 CREATE TABLE Lease_Contract(
     dealership_id int,
-    vin int
+    vin int,
+    FOREIGN KEY(vin) REFERENCES Vehicles(vin)
 );
